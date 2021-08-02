@@ -1,0 +1,22 @@
+@import '../../styles/button.scss';
+@import '../../styles/body.scss';
+
+.canvasBody {
+  @include mainScreen;
+}
+
+#canvas {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
+  border: thin inset #aaaaaa;
+  width: 600px;
+  height: 500px;
+}
+
+.buttonGroup{
+  @include buttonGroup;
+}

@@ -1,0 +1,10 @@
+@import '../../styles/button.scss';
+@import '../../styles//body.scss';
+
+.canvasBody {
+  @include mainScreen;
+}
+
+.buttonGroup{
+  @include buttonGroup;
+}
