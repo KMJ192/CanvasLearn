@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Redirect } from 'react-router';
 
-import styles from './Drawing.module.scss';
+import { contextDrawing } from './functionModule';
 
-function canvasScreen(
-  context: CanvasRenderingContext2D, 
-  canvasRef: React.RefObject<HTMLCanvasElement>
-){
-  
-}
+import styles from './Drawing.module.scss';
+import { EVENT_PROCESS_PATH } from '../../path/pagePath';
 
 function Drawing() {
+  const [mount, setMount] = useState(true);
   const [page, setPage] = useState({
     home: false,
     next: false
@@ -18,10 +15,15 @@ function Drawing() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const context = canvasRef.current?.getContext('2d');
-    if (context && canvasRef.current) {
-      canvasScreen(context, canvasRef);
+    let context = canvasRef.current?.getContext('2d');
+    let fn: Function;
+    if (context && canvasRef.current && mount) {
+      [context, fn] = contextDrawing(context, canvasRef.current);
+      setMount(false);
     }
+    setInterval(() => {
+      fn();
+    }, 1000);
   }, [canvasRef]);
 
   const nextScreen = () => {
@@ -38,7 +40,7 @@ function Drawing() {
   }
 
   if (page.next === true) {
-    //return <Redirect to={} />
+    return <Redirect to={EVENT_PROCESS_PATH} />
   }
   if (page.home === true) {
     return <Redirect to='/' />

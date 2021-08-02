@@ -4,4 +4,3 @@
 - React
 - SASS module
 - Canvas api
-

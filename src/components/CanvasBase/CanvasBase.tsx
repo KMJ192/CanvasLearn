@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { Context } from './functionModule';
+import { setContext } from './functionModule';
 import { DRAWING_PATH } from '../../path/pagePath';
 
 import styles from './CanvasBase.module.scss';
@@ -16,7 +16,7 @@ function CanvasBase() {
   useEffect(() => {
     const context = canvasRef.current?.getContext('2d');
     if (context && canvasRef.current) {
-      Context(context, canvasRef);
+      setContext(context, canvasRef.current);
     }
   }, [canvasRef]);
 
@@ -44,7 +44,7 @@ function CanvasBase() {
   return (
     <div className={styles.canvasBody}>
       <h1>Canvas Base</h1>
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} id={styles.canvas}/>
       <div className={styles.buttonGroup}>
         <button 
           onClick={nextScreen}
