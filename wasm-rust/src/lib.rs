@@ -1,36 +1,17 @@
 use wasm_bindgen::prelude::*;
+pub mod canvas_base;
 
-#[wasm_bindgen]
-extern {
-    pub fn alert(s: &str);
+#[cfg(test)]
+mod tests {
+  #[test]
+  fn it_works() {
+    assert_eq!(2 + 2, 4);
+  }
 }
 
-#[wasm_bindgen]
-pub fn greet(name: &str) {
-    alert(&format!("{}", name));
-}
 
 #[wasm_bindgen]
-pub fn add(a: i32, b: i32) -> i32{
-    a + b
-}
-
-#[wasm_bindgen]
-pub fn sub(a: i32, b: i32) -> i32{
-    a - b
-}
-
-#[wasm_bindgen]
-pub fn mul(a: i32, b: i32) -> i32{
-    a * b
-}
-
-#[wasm_bindgen]
-pub fn div(a: i32, b: i32) -> i32{
-    a / b
-}
-
-#[wasm_bindgen]
-pub fn rust_vec() -> Vec<i32>{
-    vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+pub fn wasm_canvas_base(canvas: web_sys::HtmlCanvasElement) {
+    use canvas_base::canvas_base;
+    canvas_base(canvas);
 }

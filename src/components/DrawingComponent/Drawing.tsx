@@ -16,14 +16,17 @@ function Drawing() {
 
   useEffect(() => {
     let context = canvasRef.current?.getContext('2d');
-    let fn: Function;
+    //let fn: Function;
     if (context && canvasRef.current && mount) {
-      [context, fn] = contextDrawing(context, canvasRef.current);
+      import('../../../wasm-rust/pkg').then(wasm_module => {
+        if(canvasRef.current) wasm_module.wasm_canvas_base(canvasRef.current);
+      })
+      //[context, fn] = contextDrawing(context, canvasRef.current);
       setMount(false);
     }
-    setInterval(() => {
-      fn();
-    }, 1000);
+    // setInterval(() => {
+    //   fn();
+    // }, 1000);
   }, [canvasRef]);
 
   const nextScreen = () => {
