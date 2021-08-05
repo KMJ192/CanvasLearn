@@ -20,7 +20,7 @@ function Drawing() {
     if (context && canvasRef.current && mount) {
       import('../../../wasm-rust/pkg').then(wasm_module => {
         if(canvasRef.current) wasm_module.wasm_canvas_base(canvasRef.current);
-      })
+      });
       //[context, fn] = contextDrawing(context, canvasRef.current);
       setMount(false);
     }
@@ -62,8 +62,7 @@ function Drawing() {
         >Home</button>
       </div>
     </div>
-    
-  )
+  );
 }
 
-export default Drawing
+export default React.memo(Drawing);
