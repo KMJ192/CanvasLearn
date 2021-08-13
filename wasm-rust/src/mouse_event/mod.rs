@@ -8,5 +8,4 @@ pub fn mouse_event(canvas: web_sys::HtmlCanvasElement) {
     .dyn_into::<web_sys::CanvasRenderingContext2d>()
     .unwrap();
 
-  context.begin_path();
 }
