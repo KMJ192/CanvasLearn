@@ -9,10 +9,12 @@ import EventProcessContainer from './containers/EventProcess/EventProcessContain
 import { 
   CANVAS_BASE_PATH, 
   DRAWING_PATH,
-  EVENT_PROCESS_PATH
+  EVENT_PROCESS_PATH,
+  WASM_METHOD
 } from './path/pagePath';
 
 import styles from './App.module.scss';
+import WasmMethodContainer from './containers/WasmMethod/WasmMethodContainer';
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
           <Route path={CANVAS_BASE_PATH} exact component={CanvasBaseContainer}/>
           <Route path={DRAWING_PATH} exact component={CanvasDrawingContainer}/>
           <Route path={EVENT_PROCESS_PATH} exact component={EventProcessContainer} />
+          <Route path={WASM_METHOD} exact component={WasmMethodContainer} />
         </Switch>
       </BrowserRouter>
     </div>
