@@ -23,7 +23,7 @@ function MainPage() {
 
   const toDrawingPage = () => {
     setPage({
-      canvasBase: true,
+      canvasBase: false,
       drawing: true,
       eventProcess: false,
       wasmMethod: false
@@ -32,7 +32,7 @@ function MainPage() {
 
   const toEventProcessPage = () => {
     setPage({
-      canvasBase: true,
+      canvasBase: false,
       drawing: false,
       eventProcess: true,
       wasmMethod: false
@@ -48,13 +48,13 @@ function MainPage() {
     });
   }
 
-  if(page.canvasBase === true) {
+  if (page.canvasBase === true) {
     return <Redirect to={CANVAS_BASE_PATH} />
-  } else if(page.drawing === true){
+  } else if (page.drawing === true) {
     return <Redirect to={DRAWING_PATH} />
-  } else if(page.eventProcess === true) {
+  } else if (page.eventProcess === true) {
     return <Redirect to={EVENT_PROCESS_PATH} />
-  } else if(page.wasmMethod == true) {
+  } else if (page.wasmMethod == true) {
     return <Redirect to={WASM_METHOD} />
   }
 

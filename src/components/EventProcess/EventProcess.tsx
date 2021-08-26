@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Redirect } from 'react-router';
 import styles from './EventProcess.module.scss';
 
+import { WASM_METHOD } from '../../../src/path/pagePath';
+
 interface Coordinate { 
   x: number;
   y: number;
@@ -88,15 +90,15 @@ function EventProcess() {
 
   const nextScreen = () => {
     setPage({
-      ...page,
+      home: false,
       next: true
     });
   }
 
   const GoHome = () => {
     setPage({
-      ...page,
-      home: true
+      home: true,
+      next: false
     });
   }
 
@@ -104,7 +106,7 @@ function EventProcess() {
     return <Redirect to='/' />
   } 
   if(page.next === true) {
-
+    return <Redirect to={WASM_METHOD} />
   }
 
   return (
@@ -123,4 +125,4 @@ function EventProcess() {
   )
 }
 
-export default EventProcess
+export default EventProcess;

@@ -10,7 +10,7 @@ function WasmMethodComponent() {
 
   const mouseClick = useCallback(() => {
     console.log('click');
-  }, [])
+  }, []);
 
   useEffect(() => {
     document.addEventListener('mousedown', mouseClick);
