@@ -1,2 +1,1 @@
-import Drawing from "./Drawing";
-export default Drawing;
+export { default } from "./Drawing";

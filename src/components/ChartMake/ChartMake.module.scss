@@ -4,8 +4,12 @@
 .canvasBody {
   @include mainScreen;
 }
+
 #canvas {
+  // width: 900px;
+  // height: 450px;
   background-color: white;
+  line-height: 350px;
 }
 
 .buttonGroup {

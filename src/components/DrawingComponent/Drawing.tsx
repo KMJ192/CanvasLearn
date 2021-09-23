@@ -1,25 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Redirect } from 'react-router';
+import React, { useEffect, useRef, useState } from "react";
+import { Redirect } from "react-router";
 
-import { contextDrawing } from './functionModule';
+import { contextDrawing } from "./functionModule";
 
-import styles from './Drawing.module.scss';
-import { EVENT_PROCESS_PATH } from '../../path/pagePath';
+import styles from "./Drawing.module.scss";
+import { EVENT_PROCESS_PATH } from "../../path/pagePath";
 
 function Drawing() {
   const [mount, setMount] = useState(true);
   const [page, setPage] = useState({
     home: false,
-    next: false
+    next: false,
   });
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    let context = canvasRef.current?.getContext('2d');
+    let context = canvasRef.current?.getContext("2d");
     //let fn: Function;
     if (context && canvasRef.current && mount) {
-      import('../../../wasm-rust/pkg').then(wasm_module => {
-        if(canvasRef.current) wasm_module.wasm_canvas_base(canvasRef.current);
+      import("../../../wasm-rust/pkg").then((wasm_module) => {
+        if (canvasRef.current) wasm_module.wasm_canvas_base(canvasRef.current);
       });
       //[context, fn] = contextDrawing(context, canvasRef.current);
       setMount(false);
@@ -32,21 +32,21 @@ function Drawing() {
   const nextScreen = () => {
     setPage({
       ...page,
-      next: true
+      next: true,
     });
-  }
+  };
   const GoHome = () => {
     setPage({
       ...page,
-      home: true
+      home: true,
     });
-  }
+  };
 
   if (page.next === true) {
-    return <Redirect to={EVENT_PROCESS_PATH} />
+    return <Redirect to={EVENT_PROCESS_PATH} />;
   }
   if (page.home === true) {
-    return <Redirect to='/' />
+    return <Redirect to="/" />;
   }
 
   return (
@@ -54,12 +54,8 @@ function Drawing() {
       <h1>Drawing</h1>
       <canvas id={styles.canvas} ref={canvasRef} />
       <div className={styles.buttonGroup}>
-        <button
-          onClick={nextScreen}
-        >Next</button>
-        <button
-          onClick={GoHome}
-        >Home</button>
+        <button onClick={nextScreen}>Next</button>
+        <button onClick={GoHome}>Home</button>
       </div>
     </div>
   );

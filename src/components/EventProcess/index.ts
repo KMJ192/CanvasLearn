@@ -1,2 +1,1 @@
-import EventProcess from "./EventProcess";
-export default EventProcess;
+export { default } from "./EventProcess";

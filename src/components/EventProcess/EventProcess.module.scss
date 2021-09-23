@@ -1,15 +1,15 @@
-@import '../../styles/button.scss';
-@import '../../styles//body.scss';
+@import "../../styles/button.scss";
+@import "../../styles/body.scss";
 
 .canvasBody {
   @include mainScreen;
 }
 #canvas {
-  width: 600px;
-  height: 350px;
+  // width: 600px;
+  // height: 350px;
   background-color: white;
 }
 
-.buttonGroup{
+.buttonGroup {
   @include buttonGroup;
 }

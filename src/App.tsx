@@ -5,11 +5,11 @@ import MainPage from "./pages/MainPage";
 import CanvasBaseContainer from "./containers/CanvasBase/CanvasBaseContainer";
 import CanvasDrawingContainer from "./containers/Drawing/CanvasDrawingContainer";
 import EventProcessContainer from "./containers/EventProcess/EventProcessContainer";
-import CanvasGame1 from "./components/CanvasGame1/CanvasGame1";
+import ChartMake from "./components/ChartMake/ChartMake";
 
 import {
   CANVAS_BASE_PATH,
-  CANVAS_GAME1,
+  CHART_MAKE,
   DRAWING_PATH,
   EVENT_PROCESS_PATH,
   WASM_METHOD,
@@ -36,7 +36,7 @@ function App() {
             component={EventProcessContainer}
           />
           <Route path={WASM_METHOD} exact component={WasmMethodContainer} />
-          <Route path={CANVAS_GAME1} exact component={CanvasGame1} />
+          <Route path={CHART_MAKE} exact component={ChartMake} />
         </Switch>
       </BrowserRouter>
     </div>

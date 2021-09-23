@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import {
   CANVAS_BASE_PATH,
-  CANVAS_GAME1,
+  CHART_MAKE,
   DRAWING_PATH,
   EVENT_PROCESS_PATH,
   WASM_METHOD,
@@ -16,7 +16,7 @@ function MainPage() {
     drawing: false,
     eventProcess: false,
     wasmMethod: false,
-    canvasGame1: false,
+    chartMake: false,
   });
 
   const toCanvasBasePage = () => {
@@ -25,7 +25,7 @@ function MainPage() {
       drawing: false,
       eventProcess: false,
       wasmMethod: false,
-      canvasGame1: false,
+      chartMake: false,
     });
   };
 
@@ -35,7 +35,7 @@ function MainPage() {
       drawing: true,
       eventProcess: false,
       wasmMethod: false,
-      canvasGame1: false,
+      chartMake: false,
     });
   };
 
@@ -45,7 +45,7 @@ function MainPage() {
       drawing: false,
       eventProcess: true,
       wasmMethod: false,
-      canvasGame1: false,
+      chartMake: false,
     });
   };
 
@@ -55,7 +55,7 @@ function MainPage() {
       drawing: false,
       eventProcess: false,
       wasmMethod: true,
-      canvasGame1: false,
+      chartMake: false,
     });
   };
 
@@ -65,7 +65,7 @@ function MainPage() {
       drawing: false,
       eventProcess: false,
       wasmMethod: false,
-      canvasGame1: true,
+      chartMake: true,
     });
   };
 
@@ -77,8 +77,8 @@ function MainPage() {
     return <Redirect to={EVENT_PROCESS_PATH} />;
   } else if (page.wasmMethod === true) {
     return <Redirect to={WASM_METHOD} />;
-  } else if (page.canvasGame1 === true) {
-    return <Redirect to={CANVAS_GAME1} />;
+  } else if (page.chartMake === true) {
+    return <Redirect to={CHART_MAKE} />;
   }
 
   return (
@@ -92,11 +92,11 @@ function MainPage() {
       <button className={styles.button} onClick={toEventProcessPage}>
         Event
       </button>
-      <button className={styles.button} onClick={toWasmMethodPage}>
+      {/* <button className={styles.button} onClick={toWasmMethodPage}>
         wasm method
-      </button>
+      </button> */}
       <button className={styles.button} onClick={toCanvaseGame1Page}>
-        canvas game1
+        chart make
       </button>
     </div>
   );

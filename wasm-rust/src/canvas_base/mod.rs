@@ -41,6 +41,10 @@ pub fn canvas_base(canvas: web_sys::HtmlCanvasElement) {
       .unwrap();
   };
 
+  let fill_color = || {
+    context.set_fill_style(&"rgba(130, 130, 10, 0.5)".into());
+  };
+
   fn draw(context: &web_sys::CanvasRenderingContext2d){
     context.stroke();
   }
@@ -48,4 +52,5 @@ pub fn canvas_base(canvas: web_sys::HtmlCanvasElement) {
   draw_cicle();
   calculation();
   draw(&context);
+  fill_color();
 }
